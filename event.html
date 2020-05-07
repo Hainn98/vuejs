@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+
+</head>
+<style>
+    body {
+        font-size: 25px;
+    }
+    .box{
+        width:200px;
+        height:200px;
+        background:aquamarine;
+        position:relative;
+    }
+    .box2{
+        width:50px;
+        height:50px;
+        position:absolute;
+        top:0;
+        right:0;
+        background:red;
+    }
+</style>
+
+<body style="display:flex;justify-content:center;min-height:100vh;align-items:center;flex-direction: column;">
+    <div class="event">
+        <div>count:{{count}}</div> 
+        <button style="cursor:pointer;" v-on:click="plus($event,5)"> click me</button>
+        <div class="box" v-on:mousemove="handleMousemove">
+            <p>ClientX:{{clientX}}</p>
+            <p>ClientY:{{clientY}}</p>
+            <div class="box2" v-on:mousemove.stop="handleMousemoveChild"></div>
+        </div>
+        <form action="" v-on:submit.prevent="handleSubmitForm">
+            <label for="">nhập username</label>
+            <input type="text"> <br>
+            <label for="">nhập email</label>
+            <input type="email"> <br>
+            <input type="submit" >submit</input>
+        </form>
+        <hr>
+        <button v-on:click="a++">A = A + 1</button>
+        <button v-on:click="b++">B = B + 1</button>
+        <hr>
+        <p>Number + A ={{addA}} </p>
+        <p>Number + B = {{addB}} </p>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
